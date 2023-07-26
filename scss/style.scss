@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+}
+/* --- Header---*/
+
+// header .container{
+
+//     display: flex;
+//     justify-content: space-between;
+// }
+/*====== =====  KHAI BÁO BIẾN ==================== */
+/* 1 ----- text color -------*/
+$text-c1-primary: rgb(42, 115, 221);
+$text-c2-primary: black;
+$text-c3-primary : #fff;
+
+/* 2 ----- text size-----------------------*/
+$text-xs: 10px;
+$text-base: 16px;
+$text-xl: 18px;
+$text-2xl: 20px;
+$text-3xl: 30px;
+$text-4xl: 40px;
+$text-5xl: 50px;
+$text-6xl: 60px;
+/* 3 ----- font-weight------------------*/
+$text-light: 300;
+$text-regular: 400;
+$text-semibold: 600;
+$text-bold: 700;
+
+// bg
+$bg-c1-secondary: rgb(245, 249, 254);
+
+/* === MIXIN : HÀM TRONG SCSS =====*/
+
+// @mixin : Cho phép định nghĩa các giá trị mặc định cho tham số
+/* Cách 1:  @mixin text($fs, $fw, $c) {
+
+//     font-size: $fs;
+//     font-weight: $fw;
+    color: $c; 
+*/
+
+// }
+@mixin text($fs: $text-base, $fw: $text-regular, $c: $text-c2-primary) {
+  font-size: $fs;
+  font-weight: $fw;
+  color: $c;
+}
+//--- nesting css
+header {
+  background-color: $bg-c1-secondary;
+  .container {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .main__logo {
+      a {
+        text-decoration: none;
+        // font-size: $text-3xl;
+        // font-weight: $text-semibold;
+        // color: $text-c1-primary;
+        @include text(
+          $text-3xl,
+          $text-semibold,
+          $text-c1-primary
+        ); // gọi hàm minxin text
+      }
+    }
+    .navbar {
+      a {
+        text-decoration: none;
+        // font-size: $text-base;
+        // font-weight: $text-regular;
+        // color: $text-c2-primary;
+        @include text(); // mặc định
+        margin-left: 15px;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: "";
+          bottom: -3px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: $text-c1-primary;
+          transform: scale(0, 1);
+          transition: transform 0.3s;
+        }
+        &:hover {
+          // &: this -> a
+          color: $text-c1-primary;
+          &::before {
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ----- carousel------*/
+.carousel {
+  background: url(../images/product-header-bg.jpg);
+  background-size: cover;
+  background-position: right bottom;
+  height: 800px;
+  box-shadow: -1px -4px 5px 0px rgba(207, 229, 242, 1);
+  .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .carousel__detail {
+      h1 {
+          @include text($text-6xl,$text-bold,$text-c1-primary );
+      }
+      span {
+          @include text($text-xl,$text-semibold , $text-c2-primary );
+         
+      }
+      p {
+        @include text($text-xl,$text-regular , $text-c2-primary );
+
+      }
+      .carousel__btn {
+          margin: 10px 0;
+        .btn__info {
+            box-shadow: rgb(201, 216, 244) 0px 3px 6px;
+            cursor: pointer;
+            @include text ($text-base, $text-semibold, $text-c1-primary );
+            border: 2px solid rgb(42, 115, 221);
+            border-radius: 5px;
+            padding: 10px 30px;
+        }
+        .btn__shop {
+            box-shadow:  rgb(42, 115, 221) 0px 3px 6px;
+            background-color :rgb(42, 115, 221);
+            cursor: pointer;
+            @include text ($text-base, $text-semibold, $text-c3-primary );
+            border: 2px solid rgb(201, 216, 244);
+            border-radius: 5px;
+            padding: 10px 30px;
+        }
+      }
+    }
+    .carousel__thumnail {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
