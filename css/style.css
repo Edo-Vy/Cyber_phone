@@ -11,12 +11,6 @@
   padding: 0 15px;
 }
 
-html,
-body {
-  font-family: "Montserrat", sans-serif;
-}
-
-/* --- Header---*/
 /*====== =====  KHAI BÁO BIẾN ==================== */
 /* 1 ----- text color -------*/
 /* 2 ----- text size-----------------------*/
@@ -28,6 +22,17 @@ body {
 //     font-weight: $fw;
     color: $c; 
 */
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 header {
   background-color: #f5f9fe;
 }
@@ -77,7 +82,7 @@ header .container .navbar a:hover::before {
 
 /* ----- carousel------*/
 .carousel {
-  background: url(../images/product-header-bg.jpg);
+  background: url(../../../images/product-header-bg.jpg);
   background-size: cover;
   background-position: right bottom;
   height: 800px;
@@ -162,9 +167,15 @@ header .container .navbar a:hover::before {
   width: calc(100% / 3);
   padding: 0 15px;
   /*
-          $i : tên biến chạy
-          from 0 -> < 6 dừng
-        */
+            $i : tên biến chạy
+            from 0 -> < 6 dừng
+          */
+}
+
+@media only screen and (max-width: 768px) {
+  .product__list .container .row .col {
+    width: 100%;
+  }
 }
 
 .product__list .container .row .col .item-1 {
@@ -247,13 +258,9 @@ header .container .navbar a:hover::before {
   padding: 10px 30px;
 }
 
-@keyframes fadeInDown {
-  0% {
-    transform: translateY(-200px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
+html,
+body {
+  font-family: "Montserrat", sans-serif;
 }
+
+/* --- Header---*/
