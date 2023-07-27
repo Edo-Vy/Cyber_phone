@@ -139,3 +139,121 @@ header .container .navbar a:hover::before {
 .carousel .container .carousel__thumnail img {
   width: 100%;
 }
+
+/* ------ products --------*/
+.product__list .container {
+  overflow: hidden;
+}
+
+.product__list .container h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.product__list .container .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product__list .container .row .col {
+  width: calc(100% / 3);
+  padding: 0 15px;
+  /*
+          $i : tên biến chạy
+          from 0 -> < 6 dừng
+        */
+}
+
+.product__list .container .row .col .item-1 {
+  animation: fadeInDown 0.5s;
+}
+
+.product__list .container .row .col .item-2 {
+  animation: fadeInDown 1s;
+}
+
+.product__list .container .row .col .item-3 {
+  animation: fadeInDown 1.5s;
+}
+
+.product__list .container .row .col .item-4 {
+  animation: fadeInDown 2s;
+}
+
+.product__list .container .row .col .item-5 {
+  animation: fadeInDown 2.5s;
+}
+
+.product__list .container .row .col .item-6 {
+  animation: fadeInDown 3s;
+}
+
+.product__list .container .row .col .product__card {
+  box-shadow: #e2ebfc 6px 6px 12px, #fff -6px -6px 12px;
+  padding: 15px;
+}
+
+.product__list .container .row .col .product__card img {
+  width: 100%;
+}
+
+.product__list .container .row .col .product__card .card__body {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.product__list .container .row .col .product__card .card__body .card__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product__list .container .row .col .product__card .card__body .card__title .card__name {
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+
+.product__list .container .row .col .product__card .card__body .card__acc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product__list .container .row .col .product__card .card__body .card__acc .card__des {
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 300;
+  color: black;
+}
+
+.product__list .container .row .col .product__card .card__body .card__acc .card__rating i {
+  color: rgba(240, 188, 66, 0.83);
+}
+
+.product__list .container .row .col .product__card .card__body .btn .btnBuy {
+  margin: 10px 0;
+  box-shadow: #2a73dd 0px 3px 6px;
+  background-color: #2a73dd;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid #c9d8f4;
+  border-radius: 5px;
+  padding: 10px 30px;
+}
+
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
